@@ -20,13 +20,14 @@ namespace Idealista.Infrastructure.Queries.Advertisements
 
         public IEnumerable<AdvertisementResponse> GetAll()
         {
-            var advertisements = database.GetAllAdvertisements();
-            return mapper.Map<IEnumerable<AdvertisementResponse>>(advertisements.OrderByDescending(a => a.Score));
+            var advertisements = database.GetAllAdvertisements().Where(a => a.Score >= 40).OrderByDescending(a => a.Score);
+            return mapper.Map<IEnumerable<AdvertisementResponse>>(advertisements);
         }
 
         public IEnumerable<QualityAdvertisementResponse> GetAllForQuality()
         {
-            return null;
+            var advertisements = database.GetAllAdvertisements().Where(a => a.IrrelevantSince != null);
+            return mapper.Map<IEnumerable<QualityAdvertisementResponse>>(advertisements);
         }
     }
 }

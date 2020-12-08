@@ -14,13 +14,10 @@ namespace Idealista.Api.Controllers
     public class AdvertisementsController : ControllerBase
     {
         private readonly IAdvertisementsQuery query;
-        //private readonly IMapper mapper;
 
         public AdvertisementsController(IAdvertisementsQuery query)
-            //IMapper mapper)
         {
             this.query = query;
-            //this.mapper = mapper;
         }
 
         [HttpGet]
