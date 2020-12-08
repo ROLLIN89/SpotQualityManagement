@@ -1,17 +1,17 @@
-﻿namespace coding_test_ranking.infrastructure.persistence
+﻿namespace Idealista.Domain
 {
-    public class PictureVO
+    public class Picture
     {
         public int Id { get; set; }
         public string Url { get; set; }
         public string Quality { get; set; }
 
 
-        private PictureVO() { }
+        private Picture() { }
 
-        public static PictureVO New(int id, string url, string quality)
+        public static Picture New(int id, string url, string quality)
         {
-            var picture = new PictureVO
+            var picture = new Picture
             {
                 Id = id,
                 Url = url,

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Queries\Advertisements\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Idealista.Domain\Idealista.Domain.csproj" />
+    <ProjectReference Include="..\Idealista.Seedwork.Infrastructure\Idealista.Seedwork.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

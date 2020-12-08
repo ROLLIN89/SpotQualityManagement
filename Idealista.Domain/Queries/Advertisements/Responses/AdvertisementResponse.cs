@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace coding_test_ranking.infrastructure.api
+namespace Idealista.Domain.Queries.Advertisements.Responses
 {
-    public class Advertisement
+    public class AdvertisementResponse
     {
 
         public int Id { get; set; }

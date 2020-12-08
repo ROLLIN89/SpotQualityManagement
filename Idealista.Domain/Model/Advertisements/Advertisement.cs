@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace coding_test_ranking.infrastructure.persistence
+namespace Idealista.Domain
 {
-    public class AdvertisementVO
+    public class Advertisement
     {
         public int Id { get; private set; }
         public string Typology { get; private set; }
@@ -17,11 +17,11 @@ namespace coding_test_ranking.infrastructure.persistence
         public IReadOnlyCollection<int> Pictures => pictures.AsReadOnly();
 
 
-        private AdvertisementVO() { }
+        private Advertisement() { }
 
-        public static AdvertisementVO New(int id, string typology, string description, int? houseSize = null, int? gardenSize = null, List<int> pictureIds = null)
+        public static Advertisement New(int id, string typology, string description, int? houseSize = null, int? gardenSize = null, List<int> pictureIds = null)
         {
-            var advertisement = new AdvertisementVO
+            var advertisement = new Advertisement
             {
                 Id = id,
                 Typology = typology,
