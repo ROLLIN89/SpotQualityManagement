@@ -18,13 +18,13 @@ namespace Idealista.Infrastructure.Queries.Advertisements
             this.mapper = mapper;
         }
 
-        public IEnumerable<AdvertisementResponse> GetAll()
+        public IEnumerable<AdvertisementResponse> GetAllRelevant()
         {
-            var advertisements = database.GetAllAdvertisements().Where(a => a.Score >= 40).OrderByDescending(a => a.Score);
+            var advertisements = database.GetAllAdvertisements().Where(a => a.IrrelevantSince == null).OrderByDescending(a => a.Score);
             return mapper.Map<IEnumerable<AdvertisementResponse>>(advertisements);
         }
 
-        public IEnumerable<QualityAdvertisementResponse> GetAllForQuality()
+        public IEnumerable<QualityAdvertisementResponse> GetAllIrrelevant()
         {
             var advertisements = database.GetAllAdvertisements().Where(a => a.IrrelevantSince != null);
             return mapper.Map<IEnumerable<QualityAdvertisementResponse>>(advertisements);

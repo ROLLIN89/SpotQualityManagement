@@ -5,15 +5,15 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coding-test-ranking", "coding-test-ranking\coding-test-ranking.csproj", "{38ED5ECF-9942-4CB8-8D50-41663AD63BEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Idealista.Api", "Idealista.Api\Idealista.Api.csproj", "{1098751C-3E9A-4724-AFAA-951CCFD40A4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Idealista.Domain", "Idealista.Domain\Idealista.Domain.csproj", "{E242E950-1F04-4CC2-8077-D06774FF957C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Idealista.Domain", "Idealista.Domain\Idealista.Domain.csproj", "{E242E950-1F04-4CC2-8077-D06774FF957C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Idealista.Infrastructure", "Idealista.Infrastructure\Idealista.Infrastructure.csproj", "{01C3C6C1-5A27-4DBB-9435-1AE68B2B152C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Idealista.Infrastructure", "Idealista.Infrastructure\Idealista.Infrastructure.csproj", "{01C3C6C1-5A27-4DBB-9435-1AE68B2B152C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Seedwork", "Seedwork", "{394EE575-DFF6-4C93-B8F1-5F013AD34054}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Idealista.Seedwork.Infrastructure", "Idealista.Seedwork.Infrastructure\Idealista.Seedwork.Infrastructure.csproj", "{092E6E96-3D51-4013-9F7D-DA5268EC66AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Idealista.Seedwork.Infrastructure", "Idealista.Seedwork.Infrastructure\Idealista.Seedwork.Infrastructure.csproj", "{092E6E96-3D51-4013-9F7D-DA5268EC66AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Idealista.Application", "Idealista.Application\Idealista.Application.csproj", "{1F9B78C5-841B-46F2-97C6-BD57B71710C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{38ED5ECF-9942-4CB8-8D50-41663AD63BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38ED5ECF-9942-4CB8-8D50-41663AD63BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38ED5ECF-9942-4CB8-8D50-41663AD63BEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1098751C-3E9A-4724-AFAA-951CCFD40A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1098751C-3E9A-4724-AFAA-951CCFD40A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1098751C-3E9A-4724-AFAA-951CCFD40A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1098751C-3E9A-4724-AFAA-951CCFD40A4C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E242E950-1F04-4CC2-8077-D06774FF957C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E242E950-1F04-4CC2-8077-D06774FF957C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E242E950-1F04-4CC2-8077-D06774FF957C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +37,10 @@ Global
 		{092E6E96-3D51-4013-9F7D-DA5268EC66AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{092E6E96-3D51-4013-9F7D-DA5268EC66AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{092E6E96-3D51-4013-9F7D-DA5268EC66AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F9B78C5-841B-46F2-97C6-BD57B71710C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9B78C5-841B-46F2-97C6-BD57B71710C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9B78C5-841B-46F2-97C6-BD57B71710C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9B78C5-841B-46F2-97C6-BD57B71710C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

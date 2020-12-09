@@ -13,13 +13,14 @@ namespace Idealista.Domain
         public int Score { get; private set; }
         public DateTime? IrrelevantSince { get; private set; }
 
-        internal List<int> pictures = new List<int>();
-        public IReadOnlyCollection<int> Pictures => pictures.AsReadOnly();
+
+        internal List<Picture> pictures = new List<Picture>();
+        public IReadOnlyCollection<Picture> Pictures => pictures.AsReadOnly();
 
 
         private Advertisement() { }
 
-        public static Advertisement New(int id, string typology, string description, int? houseSize = null, int? gardenSize = null, List<int> pictureIds = null)
+        public static Advertisement New(int id, string typology, string description, int? houseSize = null, int? gardenSize = null, List<Picture> pictures = null)
         {
             var advertisement = new Advertisement
             {
@@ -30,7 +31,7 @@ namespace Idealista.Domain
                 GardenSize = gardenSize,
                 Score = 0,
                 IrrelevantSince = null,
-                pictures = pictureIds
+                pictures = pictures
             };
 
             return advertisement;
@@ -48,9 +49,16 @@ namespace Idealista.Domain
         {
             pictures.Clear();
         }
-        public void AddPictures(int pictureId)
+
+        public void AddPicture(int pictureId, string url, string quality)
         {
-            pictures.Add(pictureId);
+            var picture = Picture.New(pictureId, url, quality);
+            pictures.Add(picture);
+        }
+
+        public void AddPicture(Picture picture)
+        {
+            pictures.Add(picture);
         }
     }
 }

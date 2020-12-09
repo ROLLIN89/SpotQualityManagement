@@ -1,58 +1,59 @@
-﻿using Idealista.Domain.Queries.Advertisements;
+﻿using Idealista.Application.Advertisements;
+using Idealista.Domain.Queries.Advertisements;
 using Idealista.Domain.Queries.Advertisements.Responses;
-using Microsoft.AspNetCore.Authorization;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 
-namespace Idealista.Api.Controllers
+namespace coding_test_ranking.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class AdvertisementsController : ControllerBase
     {
+        private readonly IMediator mediator;
         private readonly IAdvertisementsQuery query;
 
-        public AdvertisementsController(IAdvertisementsQuery query)
+        public AdvertisementsController(IMediator mediator, IAdvertisementsQuery query)
         {
+            this.mediator = mediator;
             this.query = query;
         }
 
         [HttpGet]
-        [Route("all/quality")]
-        //[Authorize(Policy = Policies.ProductsCatalog.Read)]
+        [Route("irrelevantForQuality")]
         [ProducesResponseType(typeof(IEnumerable<QualityAdvertisementResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public IActionResult GetAllAdvertisementsForQuality()
+        public IActionResult GetAllIrrelevantAdvertisementsForQuality()
         {
-            var results = query.GetAllForQuality();
+            var results = query.GetAllIrrelevant();
             return Ok(results);
         }
 
         [HttpGet]
-        [Route("all")]
-        //[Authorize(Policy = Policies.ProductsCatalog.Read)]
+        [Route("relevantForUsers")]
         [ProducesResponseType(typeof(IEnumerable<AdvertisementResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public IActionResult GetAllAdvertisements()
+        public IActionResult GetAllRelevantAdvertisements()
         {
-            var results = query.GetAll();
+            var results = query.GetAllRelevant();
             return Ok(results);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("calculate-score")]
-        //[Authorize(Policy = Policies.Catalog.Read)]
-        //[ProducesResponseType(typeof(ProductMasterTagsResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CalculateScore()
+        public async Task<IActionResult> CalculateScore(int advertisementId)
         {
-            return Ok();
+            var command = new AdvertisementCommand { Id = advertisementId};
+            var result = await mediator.Send(command);
+            return Ok(result);
         }
     }
 }

@@ -3,17 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>coding_test_ranking</RootNamespace>
+    <UserSecretsId>572256b6-b1e5-448d-8816-0b9e16d2831e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Idealista.Api\Idealista.Api.csproj" />
-    <ProjectReference Include="..\Idealista.Infrastructure\Idealista.Infrastructure.csproj" />
+    <ProjectReference Include="..\Idealista.Application\Idealista.Application.csproj" />
   </ItemGroup>
 
 </Project>
