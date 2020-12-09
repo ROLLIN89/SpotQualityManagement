@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using Idealista.Domain;
 using Idealista.Domain.Queries.Advertisements.Responses;
+using Idealista.Seedwork.Infrastructure;
 using System;
 using System.Linq;
 
-namespace coding_test_ranking.Controllers
+namespace Idealista.Api.Controllers
 {
     public class AdvertisementProfile : Profile
     {

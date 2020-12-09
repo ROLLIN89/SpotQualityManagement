@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Idealista.Seedwork.Infrastructure\Idealista.Seedwork.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

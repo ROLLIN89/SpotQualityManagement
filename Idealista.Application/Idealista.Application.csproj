@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Idealista.Domain\Idealista.Domain.csproj" />
-    <ProjectReference Include="..\Idealista.Infrastructure\Idealista.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

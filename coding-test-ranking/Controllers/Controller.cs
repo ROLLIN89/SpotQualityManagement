@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace coding_test_ranking.Controllers
+namespace Idealista.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

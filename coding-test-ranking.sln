@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coding-test-ranking", "coding-test-ranking\coding-test-ranking.csproj", "{38ED5ECF-9942-4CB8-8D50-41663AD63BEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Idealista.Api", "coding-test-ranking\Idealista.Api.csproj", "{38ED5ECF-9942-4CB8-8D50-41663AD63BEA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Idealista.Domain", "Idealista.Domain\Idealista.Domain.csproj", "{E242E950-1F04-4CC2-8077-D06774FF957C}"
 EndProject

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace coding_test_ranking
+namespace Idealista.Api
 {
     public class Program
     {
@@ -15,6 +15,6 @@ namespace coding_test_ranking
                 .UseStartup<Startup>();
 
 
-        //TOO: Meter Swagger
+        //TODO: Meter Swagger
     }
 }

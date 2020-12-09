@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Idealista.Application\Idealista.Application.csproj" />
+    <ProjectReference Include="..\Idealista.Domain\Idealista.Domain.csproj" />
     <ProjectReference Include="..\Idealista.Seedwork.Infrastructure\Idealista.Seedwork.Infrastructure.csproj" />
   </ItemGroup>
 

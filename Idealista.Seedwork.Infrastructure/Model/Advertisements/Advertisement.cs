@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Idealista.Domain
+namespace Idealista.Seedwork.Infrastructure
 {
     public class Advertisement
     {
@@ -60,5 +61,8 @@ namespace Idealista.Domain
         {
             pictures.Add(picture);
         }
+
+        public int GetTotalPictures() => this.pictures.Count();
+        public List<Picture> GetPictures() => this.pictures;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Idealista.Domain
+﻿namespace Idealista.Seedwork.Infrastructure
 {
     public class Picture
     {
