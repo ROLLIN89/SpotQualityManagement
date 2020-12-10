@@ -14,12 +14,12 @@ namespace Idealista.Api.Controllers
     public class AdvertisementsController : ControllerBase
     {
         private readonly IMediator mediator;
-        private readonly IAdvertisementsQuery query;
+        private readonly IAdvertisementsQuery advertisementQuery;
 
-        public AdvertisementsController(IMediator mediator, IAdvertisementsQuery query)
+        public AdvertisementsController(IMediator mediator, IAdvertisementsQuery advertisementQuery)
         {
             this.mediator = mediator;
-            this.query = query;
+            this.advertisementQuery = advertisementQuery;
         }
 
         [HttpGet]
@@ -29,7 +29,7 @@ namespace Idealista.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public IActionResult GetAllIrrelevantAdvertisementsForQuality()
         {
-            var results = query.GetAllIrrelevant();
+            var results = advertisementQuery.GetAllIrrelevant();
             return Ok(results);
         }
 
@@ -40,7 +40,7 @@ namespace Idealista.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public IActionResult GetAllRelevantAdvertisements()
         {
-            var results = query.GetAllRelevant();
+            var results = advertisementQuery.GetAllRelevant();
             return Ok(results);
         }
 
