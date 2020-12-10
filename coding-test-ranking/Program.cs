@@ -15,6 +15,5 @@ namespace Idealista.Api
                 .UseStartup<Startup>();
 
 
-        //TODO: Meter Swagger
     }
 }

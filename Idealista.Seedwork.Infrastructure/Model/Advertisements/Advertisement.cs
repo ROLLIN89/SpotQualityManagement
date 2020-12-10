@@ -32,7 +32,7 @@ namespace Idealista.Seedwork.Infrastructure
                 GardenSize = gardenSize,
                 Score = 0,
                 IrrelevantSince = null,
-                pictures = pictures
+                pictures = pictures ?? new List<Picture>()
             };
 
             return advertisement;

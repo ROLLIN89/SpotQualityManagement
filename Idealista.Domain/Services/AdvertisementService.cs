@@ -1,6 +1,7 @@
 ﻿using Idealista.Domain.Enums;
 using Idealista.Seedwork.Infrastructure;
 using Idealista.Seedwork.Infrastructure.Data;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,6 +21,9 @@ namespace Idealista.Domain.Services
             var advertisement = database.GetAdversisementById(advertisementId);
             var score = GetScore(advertisement);
             advertisement.SetScore(score);
+
+            if (score < 40)
+                advertisement.SetIrrelevantSince(DateTime.Now);
         }
 
         private int GetScore(Advertisement advertisement)

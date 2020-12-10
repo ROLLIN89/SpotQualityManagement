@@ -1,8 +1,17 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Idealista.Domain.Queries.Advertisements;
+using Idealista.Domain.Services;
+using Idealista.Infrastructure.Queries.Advertisements;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AutoMapper;
+using System;
+using MediatR;
+using Hellang.Middleware.ProblemDetails;
+using Idealista.Seedwork.Infrastructure.Data;
+using Idealista.Application.Advertisements;
 
 namespace Idealista.Api
 {
@@ -15,25 +24,33 @@ namespace Idealista.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddMediatR(typeof(AdvertisementCommandHandler).Assembly);
+
+            services.AddTransient<IAdvertisementService, AdvertisementService>();
+            services.AddTransient<IAdvertisementsQuery, AdvertisementsQuery>();
+            services.AddSingleton<InMemoryPersistence>();
+            services.AddProblemDetails();
+            services.AddSwaggerGen();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
 
+            app.UseProblemDetails();
+            app.UseSwagger();
+            app.UseSwaggerUI(s => 
+            {
+                s.SwaggerEndpoint("v1/swagger.json", "Idealista Ranking");
+                s.RoutePrefix = "swagger";
+            });
             app.UseHttpsRedirection();
             app.UseMvc();
         }
