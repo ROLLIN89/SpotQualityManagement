@@ -1,17 +1,17 @@
-﻿using Idealista.Domain.Queries.Advertisements;
+﻿using AutoMapper;
+using Hellang.Middleware.ProblemDetails;
+using Idealista.Application.Advertisements;
+using Idealista.Domain.Queries.Advertisements;
 using Idealista.Domain.Services;
 using Idealista.Infrastructure.Queries.Advertisements;
+using Idealista.Seedwork.Infrastructure.Data;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using AutoMapper;
 using System;
-using MediatR;
-using Hellang.Middleware.ProblemDetails;
-using Idealista.Seedwork.Infrastructure.Data;
-using Idealista.Application.Advertisements;
 
 namespace Idealista.Api
 {
@@ -40,9 +40,7 @@ namespace Idealista.Api
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
 
             app.UseProblemDetails();
             app.UseSwagger();

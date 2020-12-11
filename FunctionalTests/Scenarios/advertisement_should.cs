@@ -1,16 +1,19 @@
 ﻿using FluentAssertions;
 using FunctionalTests.Config;
 using Idealista.Api.Controllers;
+using Idealista.Application.Advertisements;
 using Idealista.Domain.Queries.Advertisements;
 using Idealista.Domain.Queries.Advertisements.Responses;
 using Idealista.Seedwork.Infrastructure.Data;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using Xunit;
 
 namespace FunctionalTests.Scenarios
@@ -107,14 +110,17 @@ namespace FunctionalTests.Scenarios
         [Fact]
         public void calculate_score_with_success()
         {
-            var response = controller.CalculateScore(1);
+            var mediatorMock = new Mock<IMediator>();
 
-            //Assert.IsType<OkObjectResult>(response);
-            //var objectResponse = response as ObjectResult;
-            //objectResponse.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            mediatorMock
+                .Setup(m => m.Send(It.IsAny<AdvertisementCommandHandler>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new Unit());
 
-            //var advertisements = objectResponse.Value as List<AdvertisementResponse>;
-            //advertisements.Count().Should().Be(8);
+            var controllerWithMediatRMocked = new AdvertisementsController(mediatorMock.Object, advertisementQuery);
+
+            var response = controllerWithMediatRMocked.CalculateScore(1);
+
+            Assert.IsType<OkObjectResult>(response.Result);
         }
     }
 }

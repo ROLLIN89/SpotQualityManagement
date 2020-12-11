@@ -16,10 +16,12 @@ namespace UnitTest.Config
         {
             System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("es-es");
             System.Threading.Thread.CurrentThread.CurrentCulture = ci;
+
             services.AddTransient<IAdvertisementService, AdvertisementService>();
             services.AddTransient<IAdvertisementsQuery, AdvertisementsQuery>();
             services.AddSingleton<InMemoryPersistence>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             ServiceProvider = services.BuildServiceProvider();
             //Init data test
             SetData();

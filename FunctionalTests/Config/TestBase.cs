@@ -17,10 +17,12 @@ namespace FunctionalTests.Config
         {
             System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("es-es");
             System.Threading.Thread.CurrentThread.CurrentCulture = ci;
+
             services.AddTransient<IAdvertisementsQuery, AdvertisementsQuery>();
             services.AddSingleton<InMemoryPersistence>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMediatR(typeof(AdvertisementCommandHandler).Assembly);
+
             ServiceProvider = services.BuildServiceProvider();
             //Init data test
             SetData();
